@@ -21,6 +21,9 @@ Plug 'tpope/vim-surround'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'godlygeek/tabular'
+Plug 'hashivim/vim-terraform'
+Plug 'yorinasub17/vim-terragrunt'
+Plug 'towolf/vim-helm'
 
 call plug#end()
 
