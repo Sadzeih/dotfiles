@@ -118,6 +118,7 @@
     pkgs.gcc13
     pkgs.alacritty
     pkgs.alejandra
+    pkgs.libnotify
   ];
 
   fonts.packages = [
