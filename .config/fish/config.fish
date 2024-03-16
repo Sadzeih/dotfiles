@@ -3,9 +3,9 @@ set -x GOPATH $HOME/go
 
 set -U fish_user_paths $HOME/go/bin $HOME/.pulumi/bin $fish_user_paths
 
-set -U EDITOR "nvim"
-set -U GIT_EDITOR "nvim"
-set -x GOPRIVATE "gitlab.com/sibros/*"
+set -gx EDITOR "nvim"
+set -gx GIT_EDITOR "nvim"
+set -gx GOPRIVATE "gitlab.com/sibros/*"
 
 alias vim="nvim"
 

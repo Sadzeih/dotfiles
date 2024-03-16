@@ -1,10 +1,14 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ lib, config, fetchFromGitHub, pkgs, ... }:
-
-# let 
+{
+  lib,
+  config,
+  fetchFromGitHub,
+  pkgs,
+  ...
+}:
+# let
 #   ssh-split = pkgs.tmuxPlugins.mkTmuxPlugin {
 #     pluginName = "ssh-split";
 #     version = "unstable-2024-03-16";
@@ -17,10 +21,10 @@
 #   };
 # in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    /etc/nixos/hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -96,10 +100,11 @@
   users.users.sadzeih = {
     isNormalUser = true;
     description = "Sadzeih";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      telegram-desktop
+      #  thunderbird
     ];
   };
 
@@ -112,20 +117,20 @@
     pkgs.stow
     pkgs.gcc13
     pkgs.alacritty
+    pkgs.alejandra
   ];
 
   fonts.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    (pkgs.nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
   ];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged 
+    # Add any missing dynamic libraries for unpackaged
     # programs here, NOT in environment.systemPackages
   ];
 
-
-  programs.tmux = { 
+  programs.tmux = {
     enable = true;
     # plugins = [ ssh-split ];
   };
@@ -181,5 +186,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
