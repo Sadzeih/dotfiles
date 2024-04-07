@@ -1,0 +1,6 @@
+#!/usr/bin/pulseaudio -nF
+
+.include /etc/pulse/client.conf
+
+load-module module-null-sink sink_name=spotify
+load-module module-combined-sink sink_name=audioWithMusic slaves=1,spotify
