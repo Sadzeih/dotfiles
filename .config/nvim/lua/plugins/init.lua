@@ -39,4 +39,8 @@ return {
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
+  {
+    'towolf/vim-helm',
+    ft = 'helm',
+  },
 }
