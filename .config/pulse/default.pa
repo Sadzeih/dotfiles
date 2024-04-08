@@ -1,6 +1,9 @@
 #!/usr/bin/pulseaudio -nF
 
-.include /etc/pulse/client.conf
+.include /etc/pulse/default.pa
 
-load-module module-null-sink sink_name=spotify
-load-module module-combined-sink sink_name=audioWithMusic slaves=1,spotify
+load-module module-null-sink sink_name=spotifySink sink_properties=device.description=SpotifySink
+load-module module-null-sink sink_name=defaultSink sink_properties=device.description=DefaultSink
+load-module module-combine-sink sink_name=defaultOutput sink_properties=device.description=DefaultOutput slaves=alsa_output.pci-0000_00_1f.3.analog-stereo,defaultSink
+set-default-sink defaultOutput
+load-module module-combine-sink sink_name=spotifyOutput sink_properties=device.description=SpotifyOutput slaves=alsa_output.pci-0000_00_1f.3.analog-stereo,spotifySink
