@@ -14,7 +14,11 @@ return { -- You can easily change to a different colorscheme.
     -- }
     -- vim.cmd.colorscheme 'tokyonight-night'
     -- -- exit if it can't be found
-    require('rose-pine').setup {}
+    require('rose-pine').setup {
+      styles = {
+        italic = false,
+      },
+    }
     vim.cmd.colorscheme 'rose-pine'
   end,
 }
