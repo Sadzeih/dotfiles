@@ -123,6 +123,8 @@
     pkgs.alejandra
     pkgs.libnotify
     pkgs.zip
+    pkgs.unzip
+    pkgs.nodejs_21
   ];
 
   fonts.packages = [
