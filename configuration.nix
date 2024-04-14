@@ -114,6 +114,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = [
+    pkgs.go
     pkgs.stow
     pkgs.gcc13
     pkgs.alacritty
