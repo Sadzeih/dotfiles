@@ -122,6 +122,7 @@
     pkgs.alacritty
     pkgs.alejandra
     pkgs.libnotify
+    pkgs.zip
   ];
 
   fonts.packages = [
