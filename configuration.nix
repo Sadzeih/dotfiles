@@ -115,6 +115,8 @@
   # $ nix search wget
   environment.systemPackages = [
     pkgs.go
+    pkgs.python3
+    pkgs.lua
     pkgs.stow
     pkgs.gcc13
     pkgs.alacritty
