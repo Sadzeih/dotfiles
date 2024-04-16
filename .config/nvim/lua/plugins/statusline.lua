@@ -9,6 +9,14 @@ return {
         theme = 'rose-pine',
         globalstatus = true,
       },
+      sections = {
+        lualine_c = {
+          {
+            'filename',
+            path = 1,
+          },
+        },
+      },
     }
   end,
 }

@@ -72,6 +72,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Recentering after a <C-d> or <C-u>
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-d>', '<C-d>zz')
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-u>', '<C-u>zz')
 

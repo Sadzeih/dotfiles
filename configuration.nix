@@ -114,11 +114,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = [
+    pkgs.go
+    pkgs.python3
+    pkgs.lua
     pkgs.stow
     pkgs.gcc13
     pkgs.alacritty
     pkgs.alejandra
     pkgs.libnotify
+    pkgs.zip
+    pkgs.unzip
+    pkgs.nodejs_21
   ];
 
   fonts.packages = [
