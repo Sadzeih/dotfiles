@@ -13,6 +13,7 @@ return {
       ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
       ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
       ['<leader>e'] = { name = '[E]xplorer', _ = 'which_key_ignore' },
+      ['<leader>p'] = { name = 'Har[p]oon', _ = 'which_key_ignore' },
     }
   end,
 }
