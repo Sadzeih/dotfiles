@@ -21,7 +21,7 @@ config.window_padding = {
 config.font_size = 11
 config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono")
 
-config.window_decorations = "NONE"
+-- config.window_decorations = "NONE"
 
 -- tab bar
 config.use_fancy_tab_bar = false
