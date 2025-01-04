@@ -76,7 +76,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  #sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -123,11 +123,12 @@
     pkgs.libnotify
     pkgs.zip
     pkgs.unzip
-    pkgs.nodejs_21
+    pkgs.nodejs_23
   ];
 
-  fonts.packages = [
-    (pkgs.nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.nix-ld.enable = true;
