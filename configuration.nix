@@ -119,7 +119,7 @@
     pkgs.lua
     pkgs.stow
     pkgs.gcc13
-    pkgs.alacritty
+    pkgs.wezterm
     pkgs.alejandra
     pkgs.libnotify
     pkgs.zip
