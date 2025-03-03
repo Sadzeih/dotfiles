@@ -1,20 +1,25 @@
 return {
   'folke/which-key.nvim',
   event = 'VimEnter',
+  dependencies = {
+    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+  },
   config = function()
-    require('which-key').setup()
+    require('which-key').setup {
+      notify = false,
+    }
 
     -- Document existing key chains
     require('which-key').add {
-      { '<leader>c', desc = '[C]ode', },
-      { '<leader>d', desc = '[D]ocument', },
-      { '<leader>r', desc = '[R]ename', },
-      { '<leader>f', desc = '[F]ind', },
-      { '<leader>w', desc = '[W]orkspace', },
-      { '<leader>g', desc = '[G]it', },
-      { '<leader>e', desc = '[E]xplorer', },
-      { '<leader>p', desc = 'Har[p]oon', },
-      { '<leader>t', desc = '[T]rouble', },
+      { '<leader>c', group = '[C]ode' },
+      { '<leader>d', group = '[D]AP' },
+      { '<leader>r', group = '[R]ename' },
+      { '<leader>f', group = '[F]ind' },
+      { '<leader>w', group = '[W]orkspace' },
+      { '<leader>g', group = '[G]it' },
+      { '<leader>e', group = '[E]xplorer' },
+      { '<leader>p', group = 'Har[p]oon' },
+      { '<leader>t', group = '[T]rouble' },
     }
   end,
 }

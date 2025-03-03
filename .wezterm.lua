@@ -5,9 +5,9 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.color_scheme = "rose-pine-moon"
--- This is where you actually apply your config choices
+config.enable_wayland = false
 
-config.front_end = "WebGpu"
+-- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
 -- config.color_scheme = "rose-pine"
@@ -22,13 +22,11 @@ config.window_padding = {
 config.font_size = 11
 config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono")
 
--- config.window_decorations = "NONE"
+config.window_decorations = "NONE" -- "NONE | RESIZE"
 
 -- tab bar
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
-config.colors = colors
-config.window_frame = window_frame
 
 -- Leader is the same as my old tmux prefix
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
