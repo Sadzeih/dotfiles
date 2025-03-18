@@ -28,6 +28,15 @@ config.window_decorations = "NONE" -- "NONE | RESIZE"
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 
+-- ssh domains
+config.ssh_domains = {
+	{
+		name = "koyeb",
+		remote_address = "alexis.koyeb",
+		username = "alexis",
+	},
+}
+
 -- Leader is the same as my old tmux prefix
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {

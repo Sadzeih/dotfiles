@@ -1,11 +1,11 @@
-set PATH /usr/local/sbin /usr/sbin /bin $HOME/.yarn/bin/ $PATH
+set PATH /usr/local/sbin /usr/sbin /bin $HOME/.yarn/bin/ $HOME/.local/bin $PATH
 set -x GOPATH $HOME/go
 
 set -U fish_user_paths $HOME/go/bin $HOME/.pulumi/bin $HOME/.cargo/bin /opt/google-cloud-cli/bin/ $HOME/.zvm/self $HOME/.zvm/bin $fish_user_paths
 
 set -gx EDITOR "nvim"
 set -gx GIT_EDITOR "nvim"
-set -gx GOPRIVATE "gitlab.com/sibros/*"
+set -gx GOPRIVATE "github.com/koyeb"
 
 alias vim="nvim"
 
