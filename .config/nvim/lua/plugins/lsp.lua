@@ -61,6 +61,7 @@ return { -- LSP Configuration & Plugins
       rust_analyzer = {},
       templ = {},
       zls = {},
+      protols = {},
 
       lua_ls = {
         settings = {

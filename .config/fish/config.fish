@@ -20,3 +20,6 @@ alias k="kubectl"
 
 alias gs="git status"
 alias gd="git diff"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/tmp/google-cloud-sdk/path.fish.inc' ]; . '/tmp/google-cloud-sdk/path.fish.inc'; end
