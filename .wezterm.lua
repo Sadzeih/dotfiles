@@ -35,6 +35,11 @@ config.ssh_domains = {
 		remote_address = "alexis.koyeb",
 		username = "alexis",
 	},
+	{
+		name = "sadzeih.com",
+		remote_address = "sadzeih.com",
+		username = "debian",
+	},
 }
 
 -- Leader is the same as my old tmux prefix
