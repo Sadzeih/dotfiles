@@ -5,6 +5,8 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.color_scheme = "rose-pine-moon"
+config.colors = {}
+config.colors.background = "#111111"
 config.enable_wayland = true
 
 -- This is where you actually apply your config choices
