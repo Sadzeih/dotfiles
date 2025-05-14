@@ -14,16 +14,18 @@ return { -- LSP Configuration & Plugins
         local map = function(keys, func, desc)
           vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-        map('<leader>fs', require('telescope.builtin').lsp_document_symbols, '[F]ind Document [S]ymbols')
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+        local fzf = require 'fzf-lua'
+        map('gd', fzf.lsp_definitions, '[G]oto [D]efinition')
+        map('gr', fzf.lsp_references, '[G]oto [R]eferences')
+        map('gI', fzf.lsp_implementations, '[G]oto [I]mplementation')
+        map('<leader>D', fzf.lsp_typedefs, 'Type [D]efinition')
+        map('<leader>fs', fzf.lsp_document_symbols, '[F]ind Document [S]ymbols')
+        map('<leader>ws', fzf.lsp_live_workspace_symbols, '[W]orkspace [S]ymbols')
+        map('<leader>fd', fzf.lsp_document_diagnostics, '[F]ind [D]iagnostics')
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+        map('<leader>ca', fzf.lsp_code_actions, '[C]ode [A]ction')
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        map('gD', fzf.lsp_declarations, '[G]oto [D]eclaration')
 
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
