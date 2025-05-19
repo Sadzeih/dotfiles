@@ -1,0 +1,168 @@
+{
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": true,
+        "tooltip-format": "btw"
+    },
+
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
+    },
+
+    "hyprland/window": {
+        "icon": true,
+    },
+
+    "group/media": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": true,
+        },
+        "modules": [
+            "custom/media",
+            "custom/media-play",
+            "custom/media-next",
+        ]
+    },
+
+    "custom/media": {
+        "format": "<span font-family='JetBrainsMono Nerd Font Propo' font='16' rise='-3000'>{icon}</span> {text}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl -i firefox play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "exec": "$HOME/.config/waybar/mediaplayer.py -x firefox", // Script in 
+        "format-icons": {
+            "spotify": ""
+        }
+    },
+    "custom/media-play": {
+        "format": "<span font-family='JetBrainsMono Nerd Font Propo'>{icon}</span>",
+        "escape": true,
+        "return-type": "json",
+        "on-click": "playerctl -i firefox play-pause",
+        "exec": "playerctl -i firefox -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F", // Script in resources/custom_modules folder
+        "format-icons": {
+            "Paused": "",
+            "Playing": ""
+        }
+    },
+    "custom/media-next": {
+        "format": "<span font-family='JetBrainsMono Nerd Font Propo'></span>",
+        "on-click": "playerctl next",
+    },
+    "pulseaudio": {
+        "format": "<span font-family='JetBrainsMono Nerd Font Propo'>{icon}</span>  {volume}%",
+        "format-bluetooth": "<span font-family='JetBrainsMono Nerd Font Propo'>{icon}</span> {volume}% <span font-family='JetBrainsMono Nerd Font Propo'></span> {format_source}",
+        "format-bluetooth-muted": "<span font-family='JetBrainsMono Nerd Font Propo'></span> {icon} {format_source}",
+        "format-muted": "<span font-family='JetBrainsMono Nerd Font Propo'></span> {format_source}",
+        "format-source": "<span font-family='JetBrainsMono Nerd Font Propo'></span> {volume}%",
+        "format-source-muted": "<span font-family='JetBrainsMono Nerd Font Propo'></span>",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": "<span font-family='JetBrainsMono Nerd Font Propo'></span>   {essid} ({signalStrength}%)",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+	"on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
+	 
+    },
+    "cpu": {
+        "format": "<span font-family='JetBrainsMono Nerd Font Propo'></span>  {usage}%",
+        "tooltip": true
+    },
+    "memory": {
+        "format": "<span font-family='JetBrainsMono Nerd Font Propo'></span>  {}%",
+	"tooltip": true
+    },
+    "temperature": {
+        "interval": 10,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 100,
+        "format-critical": "<span font-family='JetBrainsMono Nerd Font Propo'></span> {temperatureC}",
+        "format": "<span font-family='JetBrainsMono Nerd Font Propo'></span> {temperatureC}°C"
+    },
+    "hyprland/language": {
+       "format": "<span font-family='JetBrainsMono Nerd Font Propo'></span>  {}",
+       "format-en": "EN",
+       "format-ru": "RU"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span font-family='JetBrainsMono Nerd Font Propo'>{icon}</span>  {capacity}%",
+        "format-full": "<span font-family='JetBrainsMono Nerd Font Propo'>{icon}</span>  {capacity}%",
+        "format-charging": "<span font-family='JetBrainsMono Nerd Font Propo'></span>  {capacity}%",
+        "format-plugged": "<span font-family='JetBrainsMono Nerd Font Propo'></span>  {capacity}%",
+        "format-alt": "{time}  <span font-family='JetBrainsMono Nerd Font Propo'>{icon}</span>",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "clock": {
+        "format": "{:%H:%M | %e %B} ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+
+    "group/power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/power",
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot",
+        ]
+    },
+    "custom/quit": {
+        "format": "󰗼",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    },
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip": false,
+        "on-click": ""
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip": false,
+        "on-click": "reboot"
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "shutdown now"
+    }
+}

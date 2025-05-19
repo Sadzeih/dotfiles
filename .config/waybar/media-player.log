@@ -1,0 +1,5 @@
+2025-04-10 14:36:49,761 __main__ INFO:181 Creating player manager
+2025-04-10 14:36:49,763 __main__ INFO:57 Initialize new player: firefox
+2025-04-10 14:36:49,763 __main__ INFO:57 Initialize new player: spotify
+2025-04-10 14:36:49,764 __main__ INFO:53 Starting main loop
+2025-04-10 14:36:51,896 __main__ INFO:18 Received signal to stop, exiting
