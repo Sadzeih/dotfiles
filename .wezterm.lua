@@ -20,9 +20,14 @@ config.window_padding = {
 	top = "0.5cell",
 	bottom = "0cell",
 }
-
-config.font_size = 11
-config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono")
+config.font_size = 12
+config.freetype_load_flags = "FORCE_AUTOHINT"
+config.font = wezterm.font_with_fallback({
+	{ family = "Input Mono", weight = "Regular" },
+	{ family = "Iosevka Term", weight = "Regular" },
+	{ family = "JetBrains Mono", weight = "Regular", stretch = "SemiCondensed" },
+	"Noto Color Emoji",
+})
 
 config.window_decorations = "NONE" -- "NONE | RESIZE"
 
