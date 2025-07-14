@@ -64,6 +64,7 @@ return { -- LSP Configuration & Plugins
       templ = {},
       zls = {},
       protols = {},
+      jsonnet_ls = {},
 
       lua_ls = {
         settings = {

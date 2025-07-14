@@ -85,6 +85,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>v', '<C-w>v', { desc = 'Split window vertically' })
 vim.keymap.set('n', '<leader>h', '<C-w>s', { desc = 'Split window horizontally' })
 vim.keymap.set('n', '<leader>x', '<C-w>q', { desc = 'Close open window' })
+vim.keymap.set('n', '<leader>_', '<C-w>_<C-w>|', { desc = 'Maximize current window' })
+vim.keymap.set('n', '<leader>=', '<C-w>=', { desc = 'Equalize windows' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
