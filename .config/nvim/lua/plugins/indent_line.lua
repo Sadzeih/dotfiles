@@ -4,6 +4,7 @@ return {
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
+    event = 'VeryLazy',
     -- opts = {},
     config = function()
       require('ibl').setup {

@@ -1,5 +1,19 @@
 return {
   'mfussenegger/nvim-dap',
+  lazy = true,
+  cmd = { 'DapContinue', 'DapToggleBreakpoint', 'DapStepInto', 'DapStepOver' },
+  keys = {
+    { '<leader>b', '<cmd>DapToggleBreakpoint<cr>', desc = 'DAP: Toggle [B]reakpoint' },
+    { '<leader>gb', '<cmd>DapRunToCursor<cr>', desc = 'DAP: Run to cursor' },
+    { '<leader>?', function() require('dapui').eval(nil, { enter = true }) end, desc = 'DAP: Eval var under cursor' },
+    { '<leader>dc', '<cmd>DapContinue<cr>', desc = '[D]AP: [C]ontinue' },
+    { '<leader>di', '<cmd>DapStepInto<cr>', desc = '[D]AP: Step [I]nto' },
+    { '<leader>do', '<cmd>DapStepOver<cr>', desc = '[D]AP: Step [O]ver' },
+    { '<leader>dt', '<cmd>DapStepOut<cr>', desc = '[D]AP: Step Ou[t]' },
+    { '<leader>db', '<cmd>DapStepBack<cr>', desc = '[D]AP: Step [B]ack' },
+    { '<leader>dr', '<cmd>DapRestart<cr>', desc = '[D]AP: [R]estart' },
+    { '<leader>ds', '<cmd>DapTerminate<cr>', desc = '[D]AP: [S]top' },
+  },
   dependencies = {
     'leoluz/nvim-dap-go',
     'rcarriga/nvim-dap-ui',
@@ -22,20 +36,6 @@ return {
     }
 
     require('nvim-dap-virtual-text').setup {}
-
-    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'DAP: Toggle [B]reakpoint' })
-    vim.keymap.set('n', '<leader>gb', dap.run_to_cursor, { desc = 'DAP: Run to cursor' })
-    vim.keymap.set('n', '<leader>?', function()
-      require('dapui').eval(nil, { enter = true })
-    end, { desc = 'DAP: Eval var under cursor' })
-
-    vim.keymap.set('n', '<leader>dc', dap.continue, { desc = '[D]AP: [C]ontinue' })
-    vim.keymap.set('n', '<leader>di', dap.step_into, { desc = '[D]AP: Step [I]nto' })
-    vim.keymap.set('n', '<leader>do', dap.step_over, { desc = '[D]AP: Step [O]ver' })
-    vim.keymap.set('n', '<leader>dt', dap.step_out, { desc = '[D]AP: Step Ou[t]' })
-    vim.keymap.set('n', '<leader>db', dap.step_back, { desc = '[D]AP: Step [B]ack' })
-    vim.keymap.set('n', '<leader>dr', dap.restart, { desc = '[D]AP: [R]estart' })
-    vim.keymap.set('n', '<leader>ds', dap.terminate, { desc = '[D]AP: [S]top' })
 
     dap.listeners.before.attach.dapui_config = function()
       ui.open()

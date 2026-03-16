@@ -1,10 +1,12 @@
 return { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
+  lazy = true,
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    { 'j-hui/fidget.nvim', opts = {} },
+    { 'j-hui/fidget.nvim', lazy = true, opts = {} },
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
@@ -46,7 +48,7 @@ return { -- LSP Configuration & Plugins
     })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(capabilities))
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -65,6 +67,8 @@ return { -- LSP Configuration & Plugins
       zls = {},
       protols = {},
       jsonnet_ls = {},
+      cue = {},
+      yamlls = {},
 
       lua_ls = {
         settings = {
@@ -98,7 +102,7 @@ return { -- LSP Configuration & Plugins
           -- This handles overriding only values explicitly passed
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+          server.capabilities = vim.tbl_deep_extend('force', require('blink.cmp').get_lsp_capabilities(server.capabilities))
           require('lspconfig')[server_name].setup(server)
         end,
       },
