@@ -20,7 +20,7 @@ config.window_padding = {
 	top = "0.5cell",
 	bottom = "0cell",
 }
-config.font_size = 12
+config.font_size = 16
 config.freetype_load_flags = "FORCE_AUTOHINT"
 config.font = wezterm.font_with_fallback({
 	{ family = "Input Mono", weight = "Regular" },
@@ -29,7 +29,7 @@ config.font = wezterm.font_with_fallback({
 	"Noto Color Emoji",
 })
 
-config.window_decorations = "NONE" -- "NONE | RESIZE"
+--config.window_decorations = "NONE" -- "NONE | RESIZE"
 
 -- tab bar
 config.use_fancy_tab_bar = false
