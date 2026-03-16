@@ -1,8 +1,11 @@
 nixos-switch.log
 .themes
 .local/share/icons
-.config/.gcloud/
-.config/.gh/
-.config/.op/
-.config/.op-docker/
+.config/cagent/
+.config/containers/
+.config/zellij/
+.config/gcloud/
+.config/gh/
+.config/op/
+.config/op-docker/
 .config/hypr/monitors.conf

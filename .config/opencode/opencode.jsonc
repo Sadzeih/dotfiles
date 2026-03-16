@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "share": "disabled",
+  "enabled_providers": ["mistral", "anthropic"],
+  "small_model": "anthropic/claude-haiku-4-5",
+  "provider": {
+    "anthropic": {
+      "options": {
+        "baseURL": "https://foundry-proxy.cheetah-koi.ts.net/anthropic/v1",
+        "apiKey": "dont-worry-it-will-be-injected",
+      },
+      "models": {
+        "claude-opus-4-6": {},
+        "claude-sonnet-4-6": {},
+        "claude-haiku-4-5": {},
+      },
+    },
+  },
+  "mcp": {
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp"
+    }
+  }
+}
