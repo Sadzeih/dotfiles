@@ -1,3 +1,8 @@
 nixos-switch.log
-*.theme
+.themes
+.local/share/icons
+.config/.gcloud/
+.config/.gh/
+.config/.op/
+.config/.op-docker/
 .config/hypr/monitors.conf
